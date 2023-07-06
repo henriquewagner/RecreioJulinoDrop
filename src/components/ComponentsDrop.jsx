@@ -124,7 +124,7 @@ const DropdownComponent = () => {
 
 export default DropdownComponent;
 
-// Esses estilos definem a aparência visual do componente DropdownComponent. Cada propriedade no objeto de estilos 
+// Esses estilos abaixo definem a aparência visual do componente DropdownComponent. Cada propriedade no objeto de estilos 
 // representa uma determinada parte do componente, como o container, o dropdown em si, os ícones, os itens selecionados, entre outros.
 
 const styles = StyleSheet.create({
