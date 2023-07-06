@@ -1,3 +1,4 @@
+// Essas importações abaixo, são as dependências e componentes necessários para criar a interface de usuário com o React Native
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
