@@ -1,4 +1,3 @@
-// Essas importações são as dependências e componentes necessários para criar a interface de usuário com o React Native
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
@@ -23,37 +22,37 @@ const data = [
 const DropdownComponent = () => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
-  const [selectItems, setSelectItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
 
   //A constante getTotalItems é uma função que calcula o valor total dos itens selecionados na lista selectedItems
   const getTotalItems = () => {
-    const totalValue = selectItems.reduce((total, item) => total + item.price * item.quantity, 0);
-    const totalQuantity = selectItems.reduce((total, item) => total + item.quantity, 0);
+    const totalValue = selectedItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    const totalQuantity = selectedItems.reduce((total, item) => total + item.quantity, 0);
     return { totalValue, totalQuantity };
   };
   // A constante handleOnChange é uma função que é chamada quando um item é selecionado no dropdown. 
   // Ela verifica se o item selecionado já existe na lista de selectedItems, ou seja, se o item já foi selecionado anteriormente.
   const handleOnChange = (item) => {
-    const existingItem = selectItems.find((selectItem) => selectItem.value === item.value);
+    const existingItem = selectedItems.find((selectedItem) => selectedItem.value === item.value);
 
     if (existingItem) {
       //Se o item selecionado já existir na lista de selectedItems
-      const updatedItems = selectItems.map((selectItem) => {
+      const updatedItems = selectedItems.map((selectedItem) => {
         // Ele irá mapear a lista de selectedItems
-        if (selectItem.value === item.value) {
+        if (selectedItem.value === item.value) {
           // Se o valor do item mapeado for igual ao valor do item selecionado atualmente
           return {
-            ...selectItem,
-            quantity: selectItem.quantity + 1,
+            ...selectedItem,
+            quantity: selectedItem.quantity + 1,
           };
         }
-        return selectItem;
+        return selectedItem;
       });
       // Atualizar a lista de selectedItems com a quantidade atualizada
-      setSelectItems(updatedItems);
+      setSelectedItems(updatedItems);
     } else {
       // Se o item selecionado não existir na lista de selectedItems
-      setSelectItems([...selectItems, { ...item, quantity: 1 }]);
+      setSelectedItems([...selectedItems, { ...item, quantity: 1 }]);
     }
     // Atualizar o valor selecionado no dropdown
     setValue(item.value);
@@ -63,9 +62,9 @@ const DropdownComponent = () => {
 
   const handleRemoveItem = (item) => {
     // Filtrar a lista de selectedItems para remover o item correspondente
-    const updatedItems = selectItems.filter((selectItem) => selectItem.value !== item.value);
+    const updatedItems = selectedItems.filter((selectedItem) => selectedItem.value !== item.value);
     // Atualizar a lista de selectedItems com os itens atualizados ( quando o item for removido)
-    setSelectItems(updatedItems);
+    setSelectedItems(updatedItems);
   };
 
   //Resumidamente, no trecho abaixo é renderizado o componente Dropdown personalizado com as opções 
@@ -73,7 +72,7 @@ const DropdownComponent = () => {
   //nome, preço e quantidade de cada item. Para cada item, há um botão de remoção para remover o item da lista.
   return (
     <View style={styles.container}>
-   
+
       <Dropdown
         style={[styles.dropdown, isFocus && { borderColor: '#850ef5' }]}
         placeholderStyle={styles.placeholderStyle}
@@ -118,7 +117,7 @@ const DropdownComponent = () => {
         <Text style={styles.ItemColorful2}>Total de itens: {getTotalItems().totalQuantity}</Text>
         <Text style={styles.ItemColorful2}> Valor da compra: R${getTotalItems().totalValue.toFixed(2)}</Text>
       </View>
-    
+
     </View>
   );
 };
@@ -180,7 +179,7 @@ const styles = StyleSheet.create({
     color: '#8E236B',
     marginTop: 60,
   },
- 
+
   ItemColorful2: {
     color: '#8E236B',
     fontSize: 25,
