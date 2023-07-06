@@ -23,37 +23,37 @@ const data = [
 const DropdownComponent = () => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
-  const [selectedItems, setSelectedItems] = useState([]);
+  const [selectItems, setSelectItems] = useState([]);
 
   //A constante getTotalItems é uma função que calcula o valor total dos itens selecionados na lista selectedItems
   const getTotalItems = () => {
-    const totalValue = selectedItems.reduce((total, item) => total + item.price * item.quantity, 0);
-    const totalQuantity = selectedItems.reduce((total, item) => total + item.quantity, 0);
+    const totalValue = selectItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    const totalQuantity = selectItems.reduce((total, item) => total + item.quantity, 0);
     return { totalValue, totalQuantity };
   };
   // A constante handleOnChange é uma função que é chamada quando um item é selecionado no dropdown. 
   // Ela verifica se o item selecionado já existe na lista de selectedItems, ou seja, se o item já foi selecionado anteriormente.
   const handleOnChange = (item) => {
-    const existingItem = selectedItems.find((selectedItem) => selectedItem.value === item.value);
+    const existingItem = selectItems.find((selectItem) => selectItem.value === item.value);
 
     if (existingItem) {
       //Se o item selecionado já existir na lista de selectedItems
-      const updatedItems = selectedItems.map((selectedItem) => {
+      const updatedItems = selectedItems.map((selectItem) => {
         // Ele irá mapear a lista de selectedItems
-        if (selectedItem.value === item.value) {
+        if (selectItem.value === item.value) {
           // Se o valor do item mapeado for igual ao valor do item selecionado atualmente
           return {
-            ...selectedItem,
+            ...selectItem,
             quantity: selectedItem.quantity + 1,
           };
         }
         return selectedItem;
       });
       // Atualizar a lista de selectedItems com a quantidade atualizada
-      setSelectedItems(updatedItems);
+      setSelectItems(updatedItems);
     } else {
       // Se o item selecionado não existir na lista de selectedItems
-      setSelectedItems([...selectedItems, { ...item, quantity: 1 }]);
+      setSelectItems([...selectItems, { ...item, quantity: 1 }]);
     }
     // Atualizar o valor selecionado no dropdown
     setValue(item.value);
@@ -63,9 +63,9 @@ const DropdownComponent = () => {
 
   const handleRemoveItem = (item) => {
     // Filtrar a lista de selectedItems para remover o item correspondente
-    const updatedItems = selectedItems.filter((selectedItem) => selectedItem.value !== item.value);
+    const updatedItems = selectItems.filter((selectItem) => selectItem.value !== item.value);
     // Atualizar a lista de selectedItems com os itens atualizados ( quando o item for removido)
-    setSelectedItems(updatedItems);
+    setSelectItems(updatedItems);
   };
 
   //Resumidamente, no trecho abaixo é renderizado o componente Dropdown personalizado com as opções 
