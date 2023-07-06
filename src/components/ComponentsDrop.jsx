@@ -38,16 +38,16 @@ const DropdownComponent = () => {
 
     if (existingItem) {
       //Se o item selecionado já existir na lista de selectedItems
-      const updatedItems = selectedItems.map((selectItem) => {
+      const updatedItems = selectItems.map((selectItem) => {
         // Ele irá mapear a lista de selectedItems
         if (selectItem.value === item.value) {
           // Se o valor do item mapeado for igual ao valor do item selecionado atualmente
           return {
             ...selectItem,
-            quantity: selectedItem.quantity + 1,
+            quantity: selectItem.quantity + 1,
           };
         }
-        return selectedItem;
+        return selectItem;
       });
       // Atualizar a lista de selectedItems com a quantidade atualizada
       setSelectItems(updatedItems);
