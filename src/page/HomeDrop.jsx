@@ -1,10 +1,7 @@
 import { StyleSheet, Text, View} from "react-native";
-
-import { ImageBackground } from "react-native";
-
 import DropdownComponent from "../components/ComponentsDrop";
 
-export function Home() {
+export function HomeDrop() {
 
   return (
     <View style={styles.container}>
@@ -23,7 +20,7 @@ const styles = StyleSheet.create({
     padding: 22,
   },
   titleEvent: {
-    color: "#8E236B",
+    color: "#5C4033",
     fontSize: 34,
     fontWeight: "bold",
     marginTop: 48,
@@ -31,7 +28,7 @@ const styles = StyleSheet.create({
     textAlign:"center"
   },
   dateEvent: {
-    color: "#8E236B",
+    color: "#5C4033",
     fontSize: 16,
     justifyContent:"center",
     textAlign:"center",

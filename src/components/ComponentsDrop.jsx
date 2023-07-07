@@ -4,19 +4,18 @@ import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-nati
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-
-//Produtos disponiveis na LISTA
-const data = [
-  { label: 'Quentão 237ml', value: '1', price: 5.00 },
-  { label: 'Quentão 400ml', value: '2', price: 10.00 },
-  { label: 'Quentão 500ml', value: '3', price: 15.00 },
-  { label: 'Pipoca P', value: '4', price: 3.00 },
-  { label: 'Pipoca M', value: '5', price: 6.00 },
-  { label: 'Pipoca G', value: '6', price: 9.00 },
-  { label: 'Bolo', value: '7', price: 4.00 },
-  { label: 'Pé de Moleque', value: '8', price: 3.50 },
-  { label: 'Cachorro-quente', value: '9', price: 5.00 },
-];
+  //Produtos disponiveis na LISTA
+  const data = [
+    { label: 'Quentão 237ml', value: '1', price: 5.00 },
+    { label: 'Quentão 400ml', value: '2', price: 10.00 },
+    { label: 'Quentão 500ml', value: '3', price: 15.00 },
+    { label: 'Pipoca P', value: '4', price: 3.00 },
+    { label: 'Pipoca M', value: '5', price: 6.00 },
+    { label: 'Pipoca G', value: '6', price: 9.00 },
+    { label: 'Bolo', value: '7', price: 4.00 },
+    { label: 'Pé de Moleque', value: '8', price: 3.50 },
+    { label: 'Cachorro-quente', value: '9', price: 5.00 },
+  ];
 
 //O componente DropdownComponent é definido como uma função de componente do React. 
 // Ele renderiza a interface do usuário e gerencia o estado dos itens selecionados.
@@ -68,9 +67,9 @@ const DropdownComponent = () => {
     setSelectedItems(updatedItems);
   };
 
-  //Resumidamente, no trecho abaixo é renderizado o componente Dropdown personalizado com as opções 
-  //definidas no data. Ele também exibe uma lista de itens selecionados em um ScrollView, mostrando o 
-  //nome, preço e quantidade de cada item. Para cada item, há um botão de remoção para remover o item da lista.
+  // Resumidamente, no trecho abaixo é renderizado o componente Dropdown personalizado com as opções 
+  // definidas no data. Ele também exibe uma lista de itens selecionados em um ScrollView, mostrando o 
+  // nome, preço e quantidade de cada item. Para cada item, há um botão de remoção para remover o item da lista.
   return (
     <View style={styles.container}>
 
@@ -135,7 +134,7 @@ const styles = StyleSheet.create({
   },
   dropdown: {
     height: 45,
-    borderColor: '#8E236B',
+    borderColor: '#5C4033',
     borderWidth: 0.5,
     borderRadius: 8,
     paddingHorizontal: 9
@@ -145,7 +144,7 @@ const styles = StyleSheet.create({
   },
   label: {
     position: 'relative',
-    backgroundColor: '#8E236B',
+    backgroundColor: '#5C4033',
     left: 21,
     top: 8,
     zIndex: 999,
@@ -155,11 +154,11 @@ const styles = StyleSheet.create({
   },
   placeholderStyle: {
     fontSize: 16,
-    color: '#8E236B',
+    color: '#5C4033',
   },
   selectTextStyle: {
     fontSize: 16,
-    color: '#8E236B'
+    color: '#5C4033'
   },
   iconStyle: {
     width: 20,
@@ -171,18 +170,18 @@ const styles = StyleSheet.create({
   },
   selectItemsContainer: {
     marginTop: 16,
-    color: '#8E236B'
+    color: '#5C4033'
   },
   footerContainer: {
   },
   ItemColorful: {
     fontSize: 18,
-    color: '#8E236B',
+    color: '#5C4033',
     marginTop: 60,
   },
 
   ItemColorful2: {
-    color: '#8E236B',
+    color: '#5C4033',
     fontSize: 25,
     justifyContent: "center",
     textAlign: "center",
@@ -196,15 +195,15 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   selectItemLabel: {
-    color: '#8E236B',
+    color: '#5C4033',
     fontSize: 12,
   },
   selectItemPrice: {
-    color: '#8E236B',
+    color: '#5C4033',
     fontSize: 15,
   },
   selectItemUnit: {
-    color: '#8E236B',
+    color: '	#5C4033',
     fontSize: 12,
   },
   buttonRemove: {
